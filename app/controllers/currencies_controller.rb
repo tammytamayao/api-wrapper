@@ -1,27 +1,27 @@
 class CurrenciesController < ApplicationController
+    before_action :initialize_client
     before_action :set_params
 
     def symbols
-        client = CurrencyApi::Client.new
-        @symbols = client.symbols
+        @symbols = @client.symbols
     end
 
     def latest
-        client = CurrencyApi::Client.new
-        @rates = client.latest(@options)
+        @rates = @client.latest(@options)
     end
 
     def convert
-        client = CurrencyApi::Client.new
-        @exchange = client.convert(@options)
+        @exchange = @client.convert(@options)
     end
 
     def fluctuation
-        client = CurrencyApi::Client.new
-        @exchange = client.fluctuation(@options)
+        @exchange = @client.fluctuation(@options)
     end
 
 private
+    def initialize_client
+        @client = CurrencyApi::Client.new
+    end
 
     def set_params
         @options = params.permit(:base, :symbol, :date, :amount, :from, :to, :end_date, :start_date).to_h
