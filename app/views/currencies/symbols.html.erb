@@ -1,0 +1,27 @@
+<div class="container mt-5">
+<div class="row d-flex justify-content-center">
+<div class="col-md-6">
+<div class="row d-flex justify-content-center border px-4 py-4 rounded-4 bg-light">
+
+<p><h1 class="fw-bold">Symbol List</h1></p>
+
+<table class="table table-hover">
+    <thead>
+    <tr>
+    <th scope="col">Symbol</th>
+    <th scope="col">Name</th>
+    </tr>
+    </thead>
+    <% @symbols['symbols'].each do |symbol| %>
+    <tr>
+    <td><%= symbol[0] %></td>
+    <td><%= symbol[1] %></td>
+    </tr>
+    <% end %>
+</table>
+
+</div>
+</div>
+</div>
+</div>
+

@@ -1,0 +1,34 @@
+<div class="container mt-4">
+<div class="row d-flex justify-content-center border px-4 py-4 rounded-4 bg-light">
+
+
+<p>
+<h1 class="fw-bold">Weekly Rate Fluctuations (Base Currency: <%= @exchange['base']%>)</h1>
+<h3 >
+    Dates: <%= @exchange['start_date']%> to <%= @exchange['end_date']%>
+</h3>
+</p>
+
+<table class="table table-hover ">
+    <thead>
+    <tr>
+    <th scope="col">Symbol</th>
+    <th scope="col">Start Rate</th>
+    <th scope="col">End Rate</th>
+    <th scope="col">Change</th>
+    <th scope="col">Percent Change</th>
+    </tr>
+    </thead>
+    <% @exchange['rates'].each do |rate| %>
+    <tr>
+    <td><%= rate[0]%></td>
+    <td><%= rate[1]['start_rate']%></td>
+    <td><%= rate[1]['end_rate']%></td>
+    <td><%= rate[1]['change']%></td>
+    <td><%= rate[1]['change_pct']%></td>
+    </tr>
+    <% end %>
+</table>
+
+</div>
+</div>

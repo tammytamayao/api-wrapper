@@ -1,0 +1,29 @@
+<div class="container mt-5">
+<div class="row d-flex justify-content-center">
+<div class="col-md-6">
+<div class="row d-flex justify-content-center border px-4 py-4 rounded-4 bg-light">
+
+<p>
+    <h1 class="fw-bold">Latest Exchange Rate</h1>
+    <h3 class="fw-bold">Base: 1 <%= @rates['base'] %></h3>
+</p>
+
+<table class="table table-hover">
+    <thead>
+    <tr>
+    <th scope="col">Symbol</th>
+    <th scope="col">Rate</th>
+    </tr>
+    </thead>
+    <% @rates['rates'].each do |rate|  %>
+    <tr>
+    <td><%= rate[0] %></td>
+    <td><%= format('%<num>0.3f', num: rate[1])%></td>
+    </tr>
+    <% end %>
+</table>
+
+</div>
+</div>
+</div>
+</div>
