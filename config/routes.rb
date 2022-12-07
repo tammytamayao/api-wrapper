@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   get "currencies/latest" => "currencies#latest", as: :latest
   get "currencies/convert" => "currencies#convert", as: :convert
   get "currencies/fluctuation" => "currencies#fluctuation", as: :fluctuation
+  
 end
